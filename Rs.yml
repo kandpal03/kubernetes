@@ -1,0 +1,20 @@
+apiversion: apps/v1
+kind: ReplicaSet
+metadata:
+   name: rs
+   labels:
+       app: myapp
+spec:
+   replicas: 3 
+   template:
+    metadata:
+      name: nginx-Pod
+      labels:
+          app: podnp #tag
+    kind: pod
+    spec:
+        containers:
+           -name: ngnix-cintainer
+           images: nginx-latest 
+           ports:
+             -containerport: 80

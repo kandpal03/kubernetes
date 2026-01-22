@@ -5,16 +5,19 @@ metadata:
    labels:
        app: myapp
 spec:
-   replicas: 3 
-   template:
-    metadata:
+  replicas: 3 
+  template:
+     metadata:
       name: nginx-Pod
       labels:
           app: podnp #tag
-    kind: pod
-    spec:
+     spec:
         containers:
-           -name: ngnix-cintainer
-           images: nginx-latest 
-           ports:
-             -containerport: 80
+           - name: ngnix-cintainer
+             images: nginx-latest 
+             ports:
+               - containerport: 80
+     selector:
+     matchlabels:
+         app: podnp
+      

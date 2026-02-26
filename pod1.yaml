@@ -1,0 +1,25 @@
+apiversion: v1
+kind: pod
+metadata: 
+ name: super-mario
+ label:
+  app: game   
+spec: 
+ container:
+  -name: c1
+  image: abhipraydh96/super-mario
+  ports:
+   -containerport: 80
+
+---
+apiversion: v1
+kind: service
+matadata:
+ name: svc-supermario
+spec:
+  seletor:
+   app: gaming
+ports:
+    protocol: TCP
+    port: 80
+    targetport: 80
